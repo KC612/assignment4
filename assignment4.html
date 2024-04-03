@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignment 4</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    padding: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <p><b>Country:</b></p>
+  <p>CANADA</p>
+  <p id="capital"><b>Capital:</b></p>
+  <p><span id="capitalName">OTTAWA</span></p>
+  <button onclick="hideCapital()">Hide capital name</button><br>
+  <button onclick="showCapital()">Show capital name</button><br>
+  <button onclick="toggleCapital()">Toggle</button>
+  <p id="hoverParagraph"><b>Hover on this paragraph for yellow</b></p>
+  <p id="clickParagraph"><b>Click on this paragraph for Green example</b></p>
+</div>
+
+<script>
+  function hideCapital() {
+    document.getElementById("capitalName").style.display = "none"; //get capital name element
+  }
+
+  function showCapital() {
+    document.getElementById("capitalName").style.display = "inline";
+  }
+
+  function toggleCapital() {
+    var capitalNameElement = document.getElementById("capitalName");
+    if (capitalNameElement.style.display === "none") { //show if hidden, hide if shown
+      showCapital();
+    } else {
+      hideCapital();
+    }
+  }
+
+  var hoverParagraph = document.getElementById("hoverParagraph");
+  hoverParagraph.addEventListener("mouseover", function() {
+    this.style.backgroundColor = "yellow"; //hover for yellow background
+  });
+  hoverParagraph.addEventListener("mouseout", function() {
+    this.style.backgroundColor = ""; //taking the mouse out gives it no background colour
+  });
+
+  var clickParagraph = document.getElementById("clickParagraph");
+  clickParagraph.addEventListener("click", function() {
+    this.style.backgroundColor = "green"; //click will be the event
+  });
+</script>
+</body>
+</html>
+
